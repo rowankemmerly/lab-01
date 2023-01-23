@@ -14,7 +14,8 @@ library(datasauRus)
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+It has 13 rows and 6 columns. The variables included are “dataset”,
+“mean_x”, “mean_y”, std_dev_x”, “std_dev_y”, and “corr_x\_y”.
 
 ### Exercise 2
 
