@@ -2,7 +2,10 @@
 title: "Lab 01 - Hello R"
 author: "Rowan Kemmerly"
 date: "1.23.23"
-output: github_document
+output: 
+  html_document: 
+    theme: cosmo
+    highlight: kate
 ---
 
 ## Load packages and data
