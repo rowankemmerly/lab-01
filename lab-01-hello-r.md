@@ -19,12 +19,6 @@ It has 13 rows and 6 columns. The variables included are “dataset”,
 
 ### Exercise 2
 
-The answers for this exercise are given for you below. But you should
-clean up some of the narrative so that it only includes what you want to
-turn in.
-
-First let’s plot the data in the dino dataset:
-
 ``` r
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
@@ -34,8 +28,6 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
 ```
 
 ![](lab-01-hello-r_files/figure-gfm/plot-dino-1.png)<!-- -->
-
-And next calculate the correlation between `x` and `y` in this dataset:
 
 ``` r
 dino_data %>%
