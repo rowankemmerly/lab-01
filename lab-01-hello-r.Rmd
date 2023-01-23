@@ -16,18 +16,17 @@ library(datasauRus)
 
 ### Exercise 1
 
-It has 13 rows and 6 columns. The variables included are "dataset", "mean_x", "mean_y", std_dev_x", "std_dev_y", and "corr_x_y".
+It has 13 rows and 6 columns. The variables included are "dataset", "mean_x", "mean_y", std_dev_x", "std_dev_y", and "corr_x\_y".
 
 ### Exercise 2
 
-```{r plot-dino, fig.height=3, fig.width=6}
+```{r plot-dino, fig.height=4, fig.width=5}
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
 
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
-
 
 ```{r cor-dino}
 dino_data %>%
@@ -38,7 +37,7 @@ dino_data %>%
 
 Even though this plot of the star dataset looks very different than the code of the dino dataset...
 
-```{r plot-star}
+```{r plot-star, fig.height=4, fig.width=5}
 star_data <- datasaurus_dozen %>%
   filter(dataset == "star")
 
@@ -55,9 +54,9 @@ star_data %>%
 
 ### Exercise 4
 
-Plotting the "circle" dataset, we can see that again, these data appear quite visually dissimilar to the dino data. 
+Plotting the "circle" dataset, we can see that again, these data appear quite visually dissimilar to the dino data.
 
-```{r plot-circle}
+```{r plot-circle, fig.height=4, fig.width=5}
 circle_data <- datasaurus_dozen %>%
   filter(dataset == "circle")
 
@@ -74,10 +73,20 @@ circle_data %>%
 
 ### Exercise 5
 
-Add code and narrative as needed.
+We can see here that while all of the plots look different...
 
-To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, green C+.
+```{r plot-all}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+  geom_point()+
+  facet_wrap(~ dataset, ncol = 3) +
+  theme(legend.position = "none")
+```
 
+...they all have virtually the same correlation coefficients between their x and y variables!
 
-
-
+```{r cor-all}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print(13)
+```
